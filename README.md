@@ -1,6 +1,8 @@
-# MyApp
+## Welcome to HearthOfLegend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
+This is an L3 MIASHS UT2J web project
+
+The team project is composed by : Robin Duclos, Pascal Ferret, Guilhem Susa and Arnaud Sibade 
 
 ## Development server
 
