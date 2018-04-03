@@ -15,9 +15,6 @@
       "es2017",
       "dom"
     ],
-	"types":["webrtc"],
-	"include": [
-		 "../node_modules/@types/jquery/index.d.ts"
-	]
+	"types":["webrtc"]
   }
 }
