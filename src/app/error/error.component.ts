@@ -9,10 +9,13 @@ import { JsonReader } form '.json.error';
   providers:[JsonReader]
 })
 export class ErrorComponent implements OnInit {
+
+  datas=[];
+
   constructor(private _json : JsonReader) { }
 
   ngOnInit() {
-    this._json.getInf().subscribe(message);
+    this._json.getInf().subscribe(message => this.datas = resUsData);
   }
 
 
