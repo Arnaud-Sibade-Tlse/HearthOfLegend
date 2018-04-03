@@ -1,6 +1,5 @@
 import { Component, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
-declare var $:JQueryStatic;
 
 @Component({
   selector: 'loginHoL',
