@@ -4,7 +4,6 @@ import { RouterModule } from '@angular/router';
 import { AppComponents, AppRoutes } from './app.routing';
 import { AppComponent } from './app.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,

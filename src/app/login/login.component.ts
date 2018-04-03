@@ -1,5 +1,6 @@
 import { Component, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
+//import * as $ from 'jquery';
 
 @Component({
   selector: 'loginHoL',
@@ -25,6 +26,7 @@ export class LoginComponent {
 			//console.log("/users/connect?email="+mail+"&password="+mdp);
 			
 			//if ok
+			//stocker json retour
 			//this.routeur.navigate(game);
 			//else
 			//this.routeur.navigate(error);
@@ -56,6 +58,7 @@ export class LoginComponent {
 	}
 	
 	ngAfterViewInit(){
+		
 		//set focus on field
 		$('.form').find('input, textarea').on('keyup blur focus', function (e) {
 		  
