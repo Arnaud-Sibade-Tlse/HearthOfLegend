@@ -26,10 +26,12 @@ export class LoginComponent {
 			//window.location.href="localhost:8080/users/connect?email="+mail+"&password="+mdp;
 			//console.log("/users/connect?email="+mail+"&password="+mdp);
 			
+			/*
 			var resp = this.http.get("https://los.ling.fr/users/connect?email="+mail+"&password="+mdp)
 			.map((data:Response) => data.json());
 			
 			console.log(resp);
+			*/
 		}
 	}
 
@@ -44,8 +46,10 @@ export class LoginComponent {
 			//window.location.href="localhost:8080/users/subscribe?email="+mail+"&name="+pseudo+"&password="+mdp;
 			//console.log("/users/subscribe?email="+mail+"&name="+pseudo+"&password="+mdp);
 			
+			/*
 			var resp = this.http.get("https://los.ling.fr/users/subscribe?email="+mail+"&name="+pseudo+"&password="+mdp)
 			.map((data:Response) => data.json());
+			*/
 		}
 	}
 
@@ -58,8 +62,10 @@ export class LoginComponent {
 			//window.location.href="/users/unsubscribe?email="+mail+"&password="+mdp;
 			//console.log(" /users/unsubscribe?email="+mail+"&password="+mdp);
 			
+			/*
 			var resp = this.http.get("https://los.ling.fr/users/unsubscribe?email="+mail+"&password="+mdp)
 			.map((data:Response) => data.json());
+			*/
 		}
 	}
 	
