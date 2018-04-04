@@ -1,7 +1,8 @@
 import { Component, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
+import { Http } from '@angular/http';
 import * as $ from 'jquery';
-import * as axios from 'axios';
+import 'rxjs/Rx';
 
 @Component({
   selector: 'loginHoL',
@@ -10,7 +11,10 @@ import * as axios from 'axios';
 })
 export class LoginComponent {
 
-	constructor(private routeur: Router, private el: ElementRef) { }
+	constructor(private routeur: Router, 
+				private el: ElementRef, 
+				private http : Http
+				) { }
 
 	seConnecter(){
 		var mail= (<HTMLInputElement>document.getElementById("mailCo")).value;
@@ -22,15 +26,10 @@ export class LoginComponent {
 			//window.location.href="localhost:8080/users/connect?email="+mail+"&password="+mdp;
 			//console.log("/users/connect?email="+mail+"&password="+mdp);
 			
-			axios.get("https://los.ling.fr/users/connect?email="+mail+"&password="+mdp)
-			.then(function (data){
-				//if ok
-				//stocker json retour
-				//this.routeur.navigate(game);
-				//else
-				//this.routeur.navigate(error);
-			});
+			var resp = this.http.get("https://los.ling.fr/users/connect?email="+mail+"&password="+mdp)
+			.map((data:Response) => data.json();
 			
+			console.log(resp);
 		}
 	}
 
@@ -44,10 +43,9 @@ export class LoginComponent {
 			//window.location.href="/users/subscribe?email="+mail+"&name="+pseudo+"&password="+mdp;
 			//window.location.href="localhost:8080/users/subscribe?email="+mail+"&name="+pseudo+"&password="+mdp;
 			//console.log("/users/subscribe?email="+mail+"&name="+pseudo+"&password="+mdp);
-			axios.get("https://los.ling.fr/users/subscribe?email="+mail+"&name="+pseudo+"&password="+mdp)
-			.then(function (data){
-				
-			});
+			
+			var resp = this.http.get("https://los.ling.fr/users/subscribe?email="+mail+"&name="+pseudo+"&password="+mdp)
+			.map((data:Response) => data.json();
 		}
 	}
 
@@ -59,10 +57,9 @@ export class LoginComponent {
 			//window.location.href="localhost:8080/users/unsubscribe?email="+mail+"&password="+mdp;
 			//window.location.href="/users/unsubscribe?email="+mail+"&password="+mdp;
 			//console.log(" /users/unsubscribe?email="+mail+"&password="+mdp);
-			axios.get("https://los.ling.fr/users/unsubscribe?email="+mail+"&password="+mdp)
-			.then(function (data){
-				
-			});
+			
+			var resp = this.http.get("https://los.ling.fr/users/unsubscribe?email="+mail+"&password="+mdp)
+			.map((data:Response) => data.json();
 		}
 	}
 	
