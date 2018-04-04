@@ -1,21 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { JsonReader } from '.json.error';
+//import { JsonReader } from '.json.error';
 
 
 @Component({
   selector: 'app-error',
   templateUrl: './error.component.html',
-  styleUrls: ['./error.component.css'],
-  providers:[JsonReader]
+  styleUrls: ['./error.component.css']/*,
+  providers:[JsonReader]*/
 })
 export class ErrorComponent implements OnInit {
 
-  datas=[];
+//  datas=[];
 
-  constructor(private _json : JsonReader) { }
+  constructor(/*private _json : JsonReader*/) { }
 
   ngOnInit() {
-    this._json.getInf().subscribe(message => this.datas = resUsData);
+    //this._json.getInf().subscribe(message => this.datas = resUsData);
   }
 
 

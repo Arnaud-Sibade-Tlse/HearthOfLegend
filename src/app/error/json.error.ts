@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+/*import { Component, OnInit } from '@angular/core';
 
 @Injectable()
 export class JsonReader{
@@ -8,5 +8,5 @@ export class JsonReader{
   getInf(){
     return this._http.get(this._url).map.((res:Reponse)=> res.json());
   }
-  
-}
+
+}*/
