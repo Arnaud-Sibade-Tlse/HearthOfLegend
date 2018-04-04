@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { JsonReader } form '.json.error';
+import { JsonReader } from '.json.error';
 
 
 @Component({
