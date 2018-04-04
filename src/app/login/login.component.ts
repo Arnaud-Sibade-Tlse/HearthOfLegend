@@ -1,6 +1,7 @@
 import { Component, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
-//import * as $ from 'jquery';
+import * as $ from 'jquery';
+import * as axios from 'axios';
 
 @Component({
   selector: 'loginHoL',
@@ -16,20 +17,20 @@ export class LoginComponent {
 		var mdp= (<HTMLInputElement>document.getElementById("passCo")).value;
 		// Si on crypte le mdp, comment est-il décrypter côté serveur ?
 		if(mail != "" && mdp != ""){
+			//httprequest="https://los.ling.fr/users/connect?email="+mail+"&password="+mdp;
 			//window.location.href="/users/connect?email="+mail+"&password="+mdp;
-			/*
-			utiliser [Angular ou React] garder le token de la session dans [$scope ou state]
-			protéger qu'on puisse pas le modif
-			*/
-			window.location.href="/users/connect?email="+mail+"&password="+mdp;
 			//window.location.href="localhost:8080/users/connect?email="+mail+"&password="+mdp;
 			//console.log("/users/connect?email="+mail+"&password="+mdp);
 			
-			//if ok
-			//stocker json retour
-			//this.routeur.navigate(game);
-			//else
-			//this.routeur.navigate(error);
+			axios.get("https://los.ling.fr/users/connect?email="+mail+"&password="+mdp)
+			.then(function (data){
+				//if ok
+				//stocker json retour
+				//this.routeur.navigate(game);
+				//else
+				//this.routeur.navigate(error);
+			});
+			
 		}
 	}
 
@@ -40,9 +41,13 @@ export class LoginComponent {
 		var mdp= (<HTMLInputElement>document.getElementById("passCr")).value;
 		
 		if(pseudo != "" && mail != "" && mdp != ""){
-			window.location.href="/users/subscribe?email="+mail+"&name="+pseudo+"&password="+mdp;
+			//window.location.href="/users/subscribe?email="+mail+"&name="+pseudo+"&password="+mdp;
 			//window.location.href="localhost:8080/users/subscribe?email="+mail+"&name="+pseudo+"&password="+mdp;
 			//console.log("/users/subscribe?email="+mail+"&name="+pseudo+"&password="+mdp);
+			axios.get("https://los.ling.fr/users/subscribe?email="+mail+"&name="+pseudo+"&password="+mdp)
+			.then(function (data){
+				
+			});
 		}
 	}
 
@@ -52,8 +57,12 @@ export class LoginComponent {
 		var mdp= (<HTMLInputElement>document.getElementById("passSp")).value;
 		if(mail != "" && mdp != ""){
 			//window.location.href="localhost:8080/users/unsubscribe?email="+mail+"&password="+mdp;
-			window.location.href="/users/unsubscribe?email="+mail+"&password="+mdp;
+			//window.location.href="/users/unsubscribe?email="+mail+"&password="+mdp;
 			//console.log(" /users/unsubscribe?email="+mail+"&password="+mdp);
+			axios.get("https://los.ling.fr/users/unsubscribe?email="+mail+"&password="+mdp)
+			.then(function (data){
+				
+			});
 		}
 	}
 	
