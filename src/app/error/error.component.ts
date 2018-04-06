@@ -10,12 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ErrorComponent implements OnInit {
 
-//  datas=[];
+  let err = "";
 
-  constructor(/*private _json : JsonReader*/) { }
+  constructor(param: err) {
+    this.err = param.err;
+  }
 
   ngOnInit() {
-    //this._json.getInf().subscribe(message => this.datas = resUsData);
   }
 
 
