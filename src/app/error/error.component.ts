@@ -5,15 +5,20 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-error',
   templateUrl: './error.component.html',
-  styleUrls: ['./error.component.css']/*,
-  providers:[JsonReader]*/
+  styleUrls: ['./error.component.css'],
+
+
 })
-export class ErrorComponent implements OnInit {
+export class ErrorComponent{
 
-  let err = "";
+  err = "erreur 1 ";
 
-  constructor(param: err) {
-    this.err = param.err;
+  constructor(/*param: err*/) {
+    //this.err = param.err;
+  }
+
+  getBack(){
+     //router.navigate(['accueil']);
   }
 
   ngOnInit() {
