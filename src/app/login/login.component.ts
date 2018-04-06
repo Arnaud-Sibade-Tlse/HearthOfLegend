@@ -12,7 +12,6 @@ import 'rxjs/Rx';
 export class LoginComponent {
 
 	constructor(private routeur: Router, 
-				private el: ElementRef, 
 				private http : Http
 				) { }
 
@@ -21,16 +20,20 @@ export class LoginComponent {
 		var mdp= (<HTMLInputElement>document.getElementById("passCo")).value;
 		// Si on crypte le mdp, comment est-il décrypter côté serveur ?
 		if(mail != "" && mdp != ""){
-			//httprequest="https://los.ling.fr/users/connect?email="+mail+"&password="+mdp;
-			//window.location.href="/users/connect?email="+mail+"&password="+mdp;
-			//window.location.href="localhost:8080/users/connect?email="+mail+"&password="+mdp;
-			//console.log("/users/connect?email="+mail+"&password="+mdp);
-			
-			/*
 			var resp = this.http.get("https://los.ling.fr/users/connect?email="+mail+"&password="+mdp)
-			.map((data:Response) => data.json());
+			//.map(function(data){return data;});
+			//.map(function(data){return data.json();});
+			.map((res:Response) => res.json());
 			
 			console.log(resp);
+			/*
+			if(resp.status=="ok"){
+				this.router.navigate(["accueil"]);
+			}
+			else{
+				this.router.navigate(["error"]);
+			}
+			
 			*/
 		}
 	}
