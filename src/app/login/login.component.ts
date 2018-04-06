@@ -20,10 +20,14 @@ export class LoginComponent {
 		var mdp= (<HTMLInputElement>document.getElementById("passCo")).value;
 		// Si on crypte le mdp, comment est-il décrypter côté serveur ?
 		if(mail != "" && mdp != ""){
-			var resp = this.http.get("https://los.ling.fr/users/connect?email="+mail+"&password="+mdp)
+			var resp; 
+			this.http.get("https://los.ling.fr/users/connect?email="+mail+"&password="+mdp)
 			//.map(function(data){return data;});
 			//.map(function(data){return data.json();});
-			.map((res:Response) => res.json());
+			//.map((res:Response) => res.json());
+			//.subscribe(data => respID = data["status"]);
+			//.subscribe(data => console.log(data["_body"]);
+			.subscribe(data => console.log(data["_body"]));
 			
 			console.log(resp);
 			/*
