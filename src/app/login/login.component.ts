@@ -11,7 +11,7 @@ import 'rxjs/Rx';
 })
 export class LoginComponent {
 
-	constructor(private routeur: Router, 
+	constructor(private routeur: Router,
 				private http : Http
 				) { }
 
@@ -20,24 +20,33 @@ export class LoginComponent {
 		var mdp= (<HTMLInputElement>document.getElementById("passCo")).value;
 		// Si on crypte le mdp, comment est-il décrypter côté serveur ?
 		if(mail != "" && mdp != ""){
-			var resp; 
+			var resp;
 			this.http.get("https://los.ling.fr/users/connect?email="+mail+"&password="+mdp)
 			//.map(function(data){return data;});
 			//.map(function(data){return data.json();});
 			//.map((res:Response) => res.json());
-			//.subscribe(data => respID = data["status"]);
+			//.subscribe(data => {
+      // respID = data["status"];
+      // goToMatch()
+      //});
 			//.subscribe(data => console.log(data["_body"]);
-			.subscribe(data => console.log(data["_body"]));
-			
+			.subscribe(data => {
+        var resp = JSON.parse(data);
+        console.log(resp);
+        if(resp.status=="ok"){
+  				this.router.navigate(["accueil"]);
+  			}
+  			else{
+  				this.router.navigate(["error"]);
+  			}
+      }, error => {
+        console.log('http error', error);
+      });
+
 			console.log(resp);
 			/*
-			if(resp.status=="ok"){
-				this.router.navigate(["accueil"]);
-			}
-			else{
-				this.router.navigate(["error"]);
-			}
-			
+
+
 			*/
 		}
 	}
@@ -47,12 +56,12 @@ export class LoginComponent {
 		var pseudo= (<HTMLInputElement>document.getElementById("pseudoCr")).value;
 		var mail= (<HTMLInputElement>document.getElementById("mailCr")).value;
 		var mdp= (<HTMLInputElement>document.getElementById("passCr")).value;
-		
+
 		if(pseudo != "" && mail != "" && mdp != ""){
 			//window.location.href="/users/subscribe?email="+mail+"&name="+pseudo+"&password="+mdp;
 			//window.location.href="localhost:8080/users/subscribe?email="+mail+"&name="+pseudo+"&password="+mdp;
 			//console.log("/users/subscribe?email="+mail+"&name="+pseudo+"&password="+mdp);
-			
+
 			/*
 			var resp = this.http.get("https://los.ling.fr/users/subscribe?email="+mail+"&name="+pseudo+"&password="+mdp)
 			.map((data:Response) => data.json());
@@ -68,19 +77,19 @@ export class LoginComponent {
 			//window.location.href="localhost:8080/users/unsubscribe?email="+mail+"&password="+mdp;
 			//window.location.href="/users/unsubscribe?email="+mail+"&password="+mdp;
 			//console.log(" /users/unsubscribe?email="+mail+"&password="+mdp);
-			
+
 			/*
 			var resp = this.http.get("https://los.ling.fr/users/unsubscribe?email="+mail+"&password="+mdp)
 			.map((data:Response) => data.json());
 			*/
 		}
 	}
-	
+
 	ngAfterViewInit(){
-		
+
 		//set focus on field
 		$('.form').find('input, textarea').on('keyup blur focus', function (e) {
-		  
+
 		  var $this = $(this),
 			  label = $this.prev('label');
 
@@ -92,14 +101,14 @@ export class LoginComponent {
 				}
 			} else if (e.type === 'blur') {
 				if( $this.val() === '' ) {
-					label.removeClass('active highlight'); 
+					label.removeClass('active highlight');
 					} else {
-					label.removeClass('highlight');   
-					}   
+					label.removeClass('highlight');
+					}
 			} else if (e.type === 'focus') {
-			  
+
 			  if( $this.val() === '' ) {
-					label.removeClass('highlight'); 
+					label.removeClass('highlight');
 					}
 			  else if( $this.val() !== '' ) {
 					label.addClass('highlight');
@@ -110,19 +119,19 @@ export class LoginComponent {
 
 		//set active tab highlight
 		$('.tab a').on('click', function (e) {
-		  
+
 		  e.preventDefault();
-		  
+
 		  $(this).parent().addClass('active');
 		  $(this).parent().siblings().removeClass('active');
-		  
+
 		  var target = $(this).attr('href');
 
 		  $('.tab-content > div').not(target).hide();
-		  
+
 		  $(target).fadeIn(600);
-		  
+
 		});
 	}
-	
+
 }
