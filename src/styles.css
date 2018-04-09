@@ -4,3 +4,6 @@ body{
 header{
 	text-align: center;
 }
+footer {
+    display: block;
+}
