@@ -10,6 +10,7 @@ import { Http } from '@angular/http';
 
 
 export class AccueilComponent {
+<<<<<<< HEAD
 
 
 	constructor(private routeur: Router,
@@ -19,5 +20,19 @@ export class AccueilComponent {
     ngOnInit() {
     }
 
+=======
+    
+    
+	constructor(private routeur: Router,
+				private http : Http
+				) { }
+    
+    /*
+    
+    ngOnInit() {
+    }
+    
+    */
+>>>>>>> 85e577e7c4ba5b8cf46528675d02352d89bbbda1
 
 }
