@@ -1,3 +1,8 @@
+.collection {
+    float: none;
+    display: inline-block;
+}
+
 .card {
     width: 105px;
     height: 157px;
