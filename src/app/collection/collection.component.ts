@@ -13,7 +13,7 @@ export class CollectionComponent implements OnInit {
   status: string;
   data: object;
 
-  constructor(private routeur: Router,private allCardsService: AllCardsService) { }
+  constructor(private routeur: Router, private allCardsService: AllCardsService) { }
 
   ngOnInit() {
       this.initCards();

@@ -1,0 +1,92 @@
+.game {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+}
+
+.board {
+    width: 100%;
+}
+
+.faceOp {
+    margin: auto;
+    width: 20%;
+    display: block;
+    background-color: yellow;
+    height: 80px;
+}
+
+.campOp {
+
+}
+
+.deckOp {
+    margin: 0;
+    padding: 0;
+    height: 180px;
+    width: 165px;
+    float: left;
+}
+
+.backCardOp {
+    width: 105px;
+    height: 157px;
+    background-image: linear-gradient(white, black);
+    border: 3px outset #303030;
+    border-radius : 5px;
+    float: left;
+}
+
+.handOp {
+    height: 180px;
+}
+
+.boardOp {
+    height: 180px;
+    background-color: red;
+}
+
+.yourBoard {
+    height: 180px;
+    background-color: blue;
+}
+
+.yourCamp {
+
+}
+
+.yourDeck {
+    margin: 0;
+    padding: 0;
+    height: 180px;
+    width: 165px;
+    float: left;
+}
+
+.yourBackCard {
+    width: 105px;
+    height: 157px;
+    background-image: linear-gradient(white, black);
+    border: 3px outset #303030;
+    border-radius : 5px;
+    float: left;
+}
+
+.yourHand {
+    height: 180px;
+    float: left;
+}
+
+.yourCards {
+    float: left;
+}
+
+.yourFace {
+    margin: auto;
+    width: 20%;
+    display: block;
+    background-color: cyan;
+    height: 80px;
+}

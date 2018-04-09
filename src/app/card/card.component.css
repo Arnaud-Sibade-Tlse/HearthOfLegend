@@ -1,0 +1,41 @@
+.card {
+    width: 105px;
+    height: 157px;
+    background-image:radial-gradient(orange, maroon);
+    color: black;
+    text-align: center;
+    border: 3px outset #303030;
+    border-radius : 5px;
+    float: left;
+}
+
+.img {
+    width: 85px;
+    height: 80px;
+    border: 1.5px inset #404040;
+    border-radius : 5px;
+}
+
+.name {
+    padding: 0;
+    margin: 0;
+    text-decoration: underline;
+    margin: 2px;
+    background-image:radial-gradient(orange, brown);
+    border: 1.5px outset #404040;
+    border-radius: 5px;
+}
+
+.stats {
+    padding: 0;
+    margin: 2px;
+    text-align: left;
+    background-image:radial-gradient(orange, brown);
+    border: 1.5px inset #404040;
+    border-radius: 5px;
+}
+
+.icon {
+    width: 15px;
+    height: 15px;
+}
