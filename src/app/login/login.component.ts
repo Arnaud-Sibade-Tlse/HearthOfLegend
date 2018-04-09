@@ -20,34 +20,21 @@ export class LoginComponent {
 		var mdp= (<HTMLInputElement>document.getElementById("passCo")).value;
 		// Si on crypte le mdp, comment est-il décrypter côté serveur ?
 		if(mail != "" && mdp != ""){
-			var resp;
 			this.http.get("https://los.ling.fr/users/connect?email="+mail+"&password="+mdp)
-			//.map(function(data){return data;});
-			//.map(function(data){return data.json();});
-			//.map((res:Response) => res.json());
-			//.subscribe(data => {
-      // respID = data["status"];
-      // goToMatch()
-      //});
-			//.subscribe(data => console.log(data["_body"]);
 			.subscribe(data => {
-        var resp = JSON.parse(data);
-        console.log(resp);
-        if(resp.status=="ok"){
-  				this.router.navigate(["accueil"]);
-  			}
-  			else{
-  				this.router.navigate(["error"]);
-  			}
-      }, error => {
-        console.log('http error', error);
-      });
-
-			console.log(resp);
-			/*
-
-
-			*/
+						console.log(data["_body"]["status"]);
+						var resp = JSON.parse(data["_body"].toString());
+						console.log(resp);
+						if(resp.status=="ok"){
+							this.routeur.navigate(["accueil"]);
+						}
+						else{
+							this.routeur.navigate(["error"]);
+						}
+					
+					}, error => {
+						console.log('http error', error);
+					});			
 		}
 	}
 
@@ -58,14 +45,21 @@ export class LoginComponent {
 		var mdp= (<HTMLInputElement>document.getElementById("passCr")).value;
 
 		if(pseudo != "" && mail != "" && mdp != ""){
-			//window.location.href="/users/subscribe?email="+mail+"&name="+pseudo+"&password="+mdp;
-			//window.location.href="localhost:8080/users/subscribe?email="+mail+"&name="+pseudo+"&password="+mdp;
-			//console.log("/users/subscribe?email="+mail+"&name="+pseudo+"&password="+mdp);
-
-			/*
-			var resp = this.http.get("https://los.ling.fr/users/subscribe?email="+mail+"&name="+pseudo+"&password="+mdp)
-			.map((data:Response) => data.json());
-			*/
+			this.http.get("https://los.ling.fr/users/subscribe?email="+mail+"&name="+pseudo+"&password="+mdp)
+			.subscribe(data => {
+						console.log(data["_body"]["status"]);
+						var resp = JSON.parse(data["_body"].toString());
+						console.log(resp);
+						if(resp.status=="ok"){
+							this.routeur.navigate([""]);
+						}
+						else{
+							this.routeur.navigate(["error"]);
+						}
+					
+					}, error => {
+						console.log('http error', error);
+					});	
 		}
 	}
 
@@ -74,14 +68,21 @@ export class LoginComponent {
 		var mail= (<HTMLInputElement>document.getElementById("mailSp")).value;
 		var mdp= (<HTMLInputElement>document.getElementById("passSp")).value;
 		if(mail != "" && mdp != ""){
-			//window.location.href="localhost:8080/users/unsubscribe?email="+mail+"&password="+mdp;
-			//window.location.href="/users/unsubscribe?email="+mail+"&password="+mdp;
-			//console.log(" /users/unsubscribe?email="+mail+"&password="+mdp);
-
-			/*
-			var resp = this.http.get("https://los.ling.fr/users/unsubscribe?email="+mail+"&password="+mdp)
-			.map((data:Response) => data.json());
-			*/
+			this.http.get("https://los.ling.fr/users/unsubscribe?email="+mail+"&password="+mdp)
+			.subscribe(data => {
+						console.log(data["_body"]["status"]);
+						var resp = JSON.parse(data["_body"].toString());
+						console.log(resp);
+						if(resp.status=="ok"){
+							this.routeur.navigate([""]);
+						}
+						else{
+							this.routeur.navigate(["error"]);
+						}
+					
+					}, error => {
+						console.log('http error', error);
+					});
 		}
 	}
 

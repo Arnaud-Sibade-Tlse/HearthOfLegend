@@ -1,5 +1,10 @@
+.collection {
+    float: none;
+    display: inline-block;
+}
+
 .card {
-    width: 95px;
+    width: 105px;
     height: 157px;
     background-image:radial-gradient(orange, maroon);
     color: black;
@@ -10,7 +15,7 @@
 }
 
 .img {
-    width: 70px;
+    width: 80px;
     height: 80px;
     border: 1.5px inset #404040;
     border-radius : 5px;
