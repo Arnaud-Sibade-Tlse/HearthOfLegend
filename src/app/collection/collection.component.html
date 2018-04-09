@@ -3,8 +3,8 @@
         <h4 class="name">{{i["name"]}}</h4>
         <img class="img" src="http://ddragon.leagueoflegends.com/cdn/img/champion/splash/{{i['key']}}_0.jpg">
         <div class="stats">
-            <div><img class="icon" src="./assets/images/sword.png">    {{i.info["attack"]}}</div>
-            <div><img class="icon" src="./assets/images/shield.png">   {{i.info["defense"]}}</div>
+            <div><img class="icon" src="./assets/images/sword.png">    {{i.info["attack"] * 2 + i.info["defense"]}}</div>
+            <div><img class="icon" src="./assets/images/shield.png">   {{i.info["defense"] * 2 + i.info["attack"]}}</div>
         </div>
     </div>
 </div>
