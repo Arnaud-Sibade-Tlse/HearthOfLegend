@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AllCardsService } from '../all-cards.service';
+import { Router } from '@angular/router';
 import { Card } from '../card/card';
 
 @Component({
@@ -12,7 +13,7 @@ export class CollectionComponent implements OnInit {
   status: string;
   data: object;
 
-  constructor(private allCardsService: AllCardsService) { }
+  constructor(private routeur: Router,private allCardsService: AllCardsService) { }
 
   ngOnInit() {
       this.initCards();
