@@ -10,7 +10,12 @@ import 'rxjs/Rx';
   styleUrls: ['./css/login.css','./css/normalize.min.css','./css/titillium.css']
 })
 export class LoginComponent {
-
+    
+    pseudo: string;
+    id : string;
+    token: string;
+    
+    
 	constructor(private routeur: Router,
 				private http : Http
 				) { }
@@ -25,6 +30,7 @@ export class LoginComponent {
 						var resp = JSON.parse(data["_body"].toString());
 						if(resp.status=="ok"){
 							this.routeur.navigate(["accueil"]);
+                            this.setData(resp.data.id,resp.data.name,resp.data.token);
 						}
 						else{
 							this.routeur.navigate(["error"]);
@@ -35,7 +41,12 @@ export class LoginComponent {
 					});			
 		}
 	}
-
+    
+    setData(id,name,token){
+        this.pseudo = name;
+        this.id = id;
+        this.token = token;
+    }
 
 	creerCompte(){
 		var pseudo= (<HTMLInputElement>document.getElementById("pseudoCr")).value;

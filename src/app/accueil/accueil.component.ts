@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component,ViewChild, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Http } from '@angular/http';
-import { ChildComponent } from "../child/child.component";
+import { LoginComponent } from "../login/login.component";
 
 @Component({
   selector: 'app-accueil',
@@ -10,16 +10,30 @@ import { ChildComponent } from "../child/child.component";
     //'<p>Your credit card is: {{ pseudo }}</p>',
   styleUrls: ['./accueil.component.css']
 })
+@Component({
+  selector: 'pseudo',
+    template:'<p>Your credit card is: {{pseudo}}</p>'
+})
 
-
-export class AccueilComponent {
+export class AccueilComponent implements AfterViewInit  {
+    
+    pseudo: string;
+    id : string;
+    token: string;
+    
     
 	constructor(private routeur: Router,
 				private http : Http
 				) { }
     
+    @ViewChild(LoginComponent) login;
     
-
+    
+    ngAfterViewInit(){
+        this.pseudo = this.login.pseudo;
+        this.id = this.login.id;
+        this.token = this.login.token;
+    }
     
     
     seDeconnecter(){
