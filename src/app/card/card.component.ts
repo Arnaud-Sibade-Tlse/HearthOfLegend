@@ -9,18 +9,20 @@ import { Card } from './card';
 })
 export class CardComponent implements OnInit {
 
-  status: string;
-  data: object;
+  name: string;
+  image: string;
+  attack: number;
+  defense: number;
 
-  constructor(private allCardsService: AllCardsService) { }
+  constructor() {
 
-  ngOnInit() {
-      this.initCards();
   }
 
-  initCards() {
-    this.allCardsService.getCards().subscribe(data => this.status = data["status"]);
-    this.allCardsService.getCards().subscribe(data => this.data = data["data"]);
+  ngOnInit() {
+    this.name = "Dieu";
+    this.image = "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Jax_0.jpg";
+    this.attack = 1000;
+    this.defense = 1500;
   }
 
 }

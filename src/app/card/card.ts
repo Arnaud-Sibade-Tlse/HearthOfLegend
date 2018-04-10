@@ -1,6 +1,6 @@
 export class Card {
     name: string;
-    attaque: number;
+    attack: number;
     defense: number;
     image: string;
 }

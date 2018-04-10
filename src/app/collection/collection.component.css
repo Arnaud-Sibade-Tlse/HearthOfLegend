@@ -1,22 +1,25 @@
 .collection {
-    float: none;
     display: inline-block;
 }
 
 .card {
     width: 105px;
-    height: 157px;
+    height: 170px;
+    /*width: 7.5%;
+    height: 12%;*/
     background-image:radial-gradient(orange, maroon);
     color: black;
     text-align: center;
     border: 3px outset #303030;
     border-radius : 5px;
-    float: left;
+    display: inline-block;
 }
 
 .img {
-    width: 80px;
-    height: 80px;
+    width: 85px;
+    height: 90px;
+    /*width: 87%;
+    height: 60%;*/
     border: 1.5px inset #404040;
     border-radius : 5px;
 }
