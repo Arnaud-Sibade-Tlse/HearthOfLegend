@@ -19,7 +19,7 @@
 .hpOp {
     width: 100%;
     background-color: #ED0000;
-    border: 3px inset #303030;
+    border: 2px solid #303030;
     border-radius : 5px;
 }
 
@@ -63,6 +63,7 @@
 .slotCard {
     height: 176px;
     width: 112px;
+    cursor:pointer;
     margin: 5px;
     border: 3px solid #FFFFFF;
     border-radius : 5px;
@@ -74,7 +75,16 @@
 }
 
 .bouton-finTour {
-
+    width:15%;
+    cursor:pointer;
+    text-decoration: none;
+    text-transform:capitalize;
+    border:2px solid #303030;
+    padding:6px 0 6px 0;
+    border-radius:150px;
+    background:#1ab188;
+    font:bold 13px Arial;
+    color:#fff;
 }
 
 .yourCamp {
@@ -86,6 +96,7 @@
     padding: 0;
     height: 180px;
     width: 165px;
+    cursor:pointer;
     display: inline-block;
 }
 
@@ -105,6 +116,7 @@
 
 .yourCards {
     display: inline-block;
+    cursor:pointer;
 }
 
 .yourFace {
@@ -114,9 +126,9 @@
 }
 
 .yourHp {
-    width: 30%;
+    width: 8%;
     background-color: #2C75FF;
-    border: 3px inset #303030;
+    border: 2px solid #303030;
     border-radius : 5px;
 }
 
