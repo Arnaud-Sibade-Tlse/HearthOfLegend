@@ -1,110 +1,113 @@
 <div>
-        <input type="image" class="btnDisconnect" width="50px" height="50px" src="../img/img_logout.png">
-        <h1> BONJOUR &pseudo&</h1>
+    <input type="image" class="btnDisconnect" width="50px" height="50px" src="" (click)="seDeconnecter()" value="Deconnecter">
+
+
+
+    <h1> BONJOUR {{pseudo}} </h1>
 
 
 
 
-    </div>
+</div>
 
-    <input type="button" class="btnJoinMatchM" id="buttonJoinMatchM" onClick="show_div('liste','buttonJoinMatchM')" value="JOIN MATCH">
+<input type="button" class="btnJoinMatchM" id="buttonJoinMatchM" (click)="show_div('liste','buttonJoinMatchM')" value="JOIN MATCH">
 
-    <div id="liste" class="limiter" style="display: none;">
-        <div class="container-table100">
-            <div class="wrap-table100">
+<div id="liste" class="limiter" style="display: none;">
+    <div class="container-table100">
+        <div class="wrap-table100">
 
 
-                <h2>Joueur en attente d'une partie</h2>
+            <h2>Joueur en attente d'une partie</h2>
 
-                <div class="table100 ver3 m-b-110">
-                    <div class="table100-head">
-                        <table>
-                            <thead>
-                                <tr class="row100 head">
-                                    <th><input type="image" width="25px" height="25px" class="btnRefresh" src="../img/img_refresh.png" value="refresh" onclick="refresh()"></th>
-                                    <th class="cell100 column1">User name</th>
-                                    <th class="cell100 column2">Ratio</th>
-                                    <th class="cell100 column3">Join</th>
-                                    <th class="cell100 column4">Accepter</th>
-                                    <th class="cell100 column5">Refuser</th>
-                                </tr>
-                            </thead>
-                        </table>
-                    </div>
-
-                    <div class="table100-body">
-                        <table>
-                            <tr class="row100 body">
-                                <td class="cell100 column1">User1</td>
-                                <td class="cell100 column2">1%</td>
-                                <td class="cell100 column3"><input type="button" class="btnJoin" value=" Img.png " onclick="sendRequest()"></td>
-                                <td class="cell100 column4"><input type="button" class="btnValidate" value=" IMG.png "></td>
-                                <td class="cell100 column5"> <input type="button" class="btnDecline" value=" IMG.png "></td>
+            <div class="table100 ver3 m-b-110">
+                <div class="table100-head">
+                    <table>
+                        <thead>
+                            <tr class="row100 head">
+                                <th><input type="image" width="25px" height="25px" class="btnRefresh" src="../img/img_refresh.png" value="refresh" onclick="refresh()"></th>
+                                <th class="cell100 column1">User name</th>
+                                <th class="cell100 column2">Ratio</th>
+                                <th class="cell100 column3">Join</th>
+                                <th class="cell100 column4">Accepter</th>
+                                <th class="cell100 column5">Refuser</th>
                             </tr>
-                        </table>
-                    </div>
-                    <div class="table100-body">
-                        <table>
-                            <tr class="row100 body">
-                                <td class="cell100 column1">User2</td>
-                                <td class="cell100 column2">20%</td>
-                                <td class="cell100 column3"><input type="button" class="btnJoin" value=" Img.png " onclick="sendRequest()"></td>
-                                <td class="cell100 column4"><input type="button" class="btnValidate" value=" IMG.png "></td>
-                                <td class="cell100 column5"> <input type="button" class="btnDecline" value=" IMG.png "></td>
-                            </tr>
-                        </table>
-                    </div>
-
-                    <div class="table100-body">
-                        <table>
-                            <tr class="row100 body">
-                                <td class="cell100 column1">User666</td>
-                                <td class="cell100 column2">100%</td>
-                                <td class="cell100 column3"><input type="button" class="btnJoin" value=" Img.png " onclick="sendRequest()"></td>
-                                <td class="cell100 column4"><input type="button" class="btnValidate" value=" IMG.png "></td>
-                                <td class="cell100 column5"> <input type="button" class="btnDecline" value=" IMG.png "></td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div class="table100-body">
-                        <table>
-                            <tr class="row100 body">
-                                <td class="cell100 column1">User1</td>
-                                <td class="cell100 column2">1%</td>
-                                <td class="cell100 column3"><input type="button" class="btnJoin" value=" Img.png " onclick="sendRequest()"></td>
-                                <td class="cell100 column4"><input type="button" class="btnValidate" value=" IMG.png "></td>
-                                <td class="cell100 column5"> <input type="button" class="btnDecline" value=" IMG.png "></td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div class="table100-body">
-                        <table>
-                            <tr class="row100 body">
-                                <td class="cell100 column1">User1</td>
-                                <td class="cell100 column2">1%</td>
-                                <td class="cell100 column3"><input type="button" class="btnJoin" value=" Img.png " onclick="sendRequest()"></td>
-                                <td class="cell100 column4"><input type="button" class="btnValidate" value=" IMG.png "></td>
-                                <td class="cell100 column5"> <input type="button" class="btnDecline" value=" IMG.png "></td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div class="table100-body">
-                        <table>
-                            <tr class="row100 body">
-                                <td class="cell100 column1">User1</td>
-                                <td class="cell100 column2">1%</td>
-                                <td class="cell100 column3"><input type="button" class="btnJoin" value=" Img.png " onclick="sendRequest()"></td>
-                                <td class="cell100 column4"><input type="button" class="btnValidate" value=" IMG.png "></td>
-                                <td class="cell100 column5"> <input type="button" class="btnDecline" value=" IMG.png "></td>
-                            </tr>
-                        </table>
-                    </div>
-
-
+                        </thead>
+                    </table>
                 </div>
+
+                <div class="table100-body">
+                    <table>
+                        <tr class="row100 body">
+                            <td class="cell100 column1">User1</td>
+                            <td class="cell100 column2">1%</td>
+                            <td class="cell100 column3"><input type="button" class="btnJoin" value=" Img.png " onclick="sendRequest()"></td>
+                            <td class="cell100 column4"><input type="button" class="btnValidate" value=" IMG.png "></td>
+                            <td class="cell100 column5"> <input type="button" class="btnDecline" value=" IMG.png "></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="table100-body">
+                    <table>
+                        <tr class="row100 body">
+                            <td class="cell100 column1">User2</td>
+                            <td class="cell100 column2">20%</td>
+                            <td class="cell100 column3"><input type="button" class="btnJoin" value=" Img.png " onclick="sendRequest()"></td>
+                            <td class="cell100 column4"><input type="button" class="btnValidate" value=" IMG.png "></td>
+                            <td class="cell100 column5"> <input type="button" class="btnDecline" value=" IMG.png "></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="table100-body">
+                    <table>
+                        <tr class="row100 body">
+                            <td class="cell100 column1">User666</td>
+                            <td class="cell100 column2">100%</td>
+                            <td class="cell100 column3"><input type="button" class="btnJoin" value=" Img.png " onclick="sendRequest()"></td>
+                            <td class="cell100 column4"><input type="button" class="btnValidate" value=" IMG.png "></td>
+                            <td class="cell100 column5"> <input type="button" class="btnDecline" value=" IMG.png "></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="table100-body">
+                    <table>
+                        <tr class="row100 body">
+                            <td class="cell100 column1">User1</td>
+                            <td class="cell100 column2">1%</td>
+                            <td class="cell100 column3"><input type="button" class="btnJoin" value=" Img.png " onclick="sendRequest()"></td>
+                            <td class="cell100 column4"><input type="button" class="btnValidate" value=" IMG.png "></td>
+                            <td class="cell100 column5"> <input type="button" class="btnDecline" value=" IMG.png "></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="table100-body">
+                    <table>
+                        <tr class="row100 body">
+                            <td class="cell100 column1">User1</td>
+                            <td class="cell100 column2">1%</td>
+                            <td class="cell100 column3"><input type="button" class="btnJoin" value=" Img.png " onclick="sendRequest()"></td>
+                            <td class="cell100 column4"><input type="button" class="btnValidate" value=" IMG.png "></td>
+                            <td class="cell100 column5"> <input type="button" class="btnDecline" value=" IMG.png "></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="table100-body">
+                    <table>
+                        <tr class="row100 body">
+                            <td class="cell100 column1">User1</td>
+                            <td class="cell100 column2">1%</td>
+                            <td class="cell100 column3"><input type="button" class="btnJoin" value=" Img.png " onclick="sendRequest()"></td>
+                            <td class="cell100 column4"><input type="button" class="btnValidate" value=" IMG.png "></td>
+                            <td class="cell100 column5"> <input type="button" class="btnDecline" value=" IMG.png "></td>
+                        </tr>
+                    </table>
+                </div>
+
+
             </div>
         </div>
     </div>
+</div>
 
 
-    <script src="js/accueil.js"></script>
+<script src="js/accueil.js"></script>

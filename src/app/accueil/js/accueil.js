@@ -12,6 +12,11 @@ function show_div(idShow,idButton) {
     }
 }
 
+function seDeconnecter(){
+    alert ('DC');
+}
+
+
 function sendRequest(){
     
     alert('You sent a request to "UserXXX"');
@@ -21,5 +26,5 @@ function sendRequest(){
 
 function refresh(){
     
-    alert('List refreshed')
+    alert('List refreshed');
 }

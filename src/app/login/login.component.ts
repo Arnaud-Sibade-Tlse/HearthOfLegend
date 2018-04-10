@@ -22,9 +22,7 @@ export class LoginComponent {
 		if(mail != "" && mdp != ""){
 			this.http.get("https://los.ling.fr/users/connect?email="+mail+"&password="+mdp)
 			.subscribe(data => {
-						console.log(data["_body"]["status"]);
 						var resp = JSON.parse(data["_body"].toString());
-						console.log(resp);
 						if(resp.status=="ok"){
 							this.routeur.navigate(["accueil"]);
 						}
@@ -52,6 +50,10 @@ export class LoginComponent {
 						console.log(resp);
 						if(resp.status=="ok"){
 							this.routeur.navigate([""]);
+                            alert('Vous avez bien creer votre compte');
+                           (<HTMLInputElement>document.getElementById("pseudoCr")).value = "";
+                           (<HTMLInputElement>document.getElementById("mailCr")).value = "";
+                           (<HTMLInputElement>document.getElementById("passCr")).value = "";
 						}
 						else{
 							this.routeur.navigate(["error"]);
