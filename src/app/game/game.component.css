@@ -14,8 +14,13 @@
     margin: auto;
     width: 20%;
     display: block;
-    background-color: yellow;
-    height: 80px;
+}
+
+.hpOp {
+    width: 100%;
+    background-color: #ED0000;
+    border: 3px inset #303030;
+    border-radius : 5px;
 }
 
 .campOp {
@@ -27,30 +32,49 @@
     padding: 0;
     height: 180px;
     width: 165px;
-    float: left;
+    display: inline-block;
 }
 
 .backCardOp {
     width: 105px;
-    height: 157px;
-    background-image: linear-gradient(white, black);
+    height: 170px;
+    background-image: linear-gradient(#a0b3b0, rgba(19, 35, 47, 0.9));
     border: 3px outset #303030;
     border-radius : 5px;
-    float: left;
+    display: inline-block;
 }
 
 .handOp {
     height: 180px;
 }
 
+.board {
+
+}
+
 .boardOp {
-    height: 180px;
-    background-color: red;
+
 }
 
 .yourBoard {
-    height: 180px;
-    background-color: blue;
+
+}
+
+.slotCard {
+    height: 176px;
+    width: 112px;
+    margin: 5px;
+    border: 3px solid #FFFFFF;
+    border-radius : 5px;
+    display: inline-block;
+}
+
+.limite {
+
+}
+
+.bouton-finTour {
+
 }
 
 .yourCamp {
@@ -62,31 +86,40 @@
     padding: 0;
     height: 180px;
     width: 165px;
-    float: left;
+    display: inline-block;
 }
 
 .yourBackCard {
     width: 105px;
-    height: 157px;
-    background-image: linear-gradient(white, black);
+    height: 170px;
+    background-image: linear-gradient(#a0b3b0, rgba(19, 35, 47, 0.9));
     border: 3px outset #303030;
     border-radius : 5px;
-    float: left;
+    display: inline-block;
 }
 
 .yourHand {
     height: 180px;
-    float: left;
+    display: inline-block;
 }
 
 .yourCards {
-    float: left;
+    display: inline-block;
 }
 
 .yourFace {
     margin: auto;
     width: 20%;
     display: block;
-    background-color: cyan;
-    height: 80px;
+}
+
+.yourHp {
+    width: 30%;
+    background-color: #2C75FF;
+    border: 3px inset #303030;
+    border-radius : 5px;
+}
+
+.card {
+    margin: auto;
 }

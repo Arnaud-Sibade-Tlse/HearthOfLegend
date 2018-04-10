@@ -1,6 +1,8 @@
 .card {
+    margin: 0;
+    padding: 0;
     width: 105px;
-    height: 157px;
+    height: 170px;
     background-image:radial-gradient(orange, maroon);
     color: black;
     text-align: center;
@@ -11,7 +13,7 @@
 
 .img {
     width: 85px;
-    height: 80px;
+    height: 90px;
     border: 1.5px inset #404040;
     border-radius : 5px;
 }
