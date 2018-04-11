@@ -5,13 +5,14 @@ import { CardComponent } from './card/card.component';
 import { CollectionComponent } from './collection/collection.component';
 import { GameComponent } from './game/game.component';
 
+
 export const AppRoutes: any = [
 { path: "", component: LoginComponent},
-{ path: "accueil", component: AccueilComponent},
+{ path: "accueil", component: AccueilComponent, canActivate: [LoginGuardGuard]},
 { path: "error", component: ErrorComponent},
-{ path: "card", component: CardComponent},
-{ path: "collection", component: CollectionComponent},
-{ path: "game", component: GameComponent}
+{ path: "card", component: CardComponent, canActivate: [LoginGuardGuard]},
+{ path: "collection", component: CollectionComponent, canActivate: [LoginGuardGuard]},
+{ path: "game", component: GameComponent, canActivate: [LoginGuardGuard]}
 ];
 
 export const AppComponents: any = [
