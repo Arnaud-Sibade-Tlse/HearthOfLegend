@@ -1,7 +1,7 @@
 import { Component,ViewChild, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Http } from '@angular/http';
-import { LoginComponent } from "../login/login.component";
+import { LoginService } from '../login.service';
 
 @Component({
   selector: 'app-accueil',
@@ -9,28 +9,25 @@ import { LoginComponent } from "../login/login.component";
   styleUrls: ['./accueil.component.css']
 })
 
-export class AccueilComponent implements AfterViewInit  {
-    
-    @ViewChild('LoginComponent') login;
-	
-    pseudo: string;
-    id : string;
-    token: string;
-    
+export class AccueilComponent implements AfterViewInit  {    
     
 	constructor(private routeur: Router,
-				private http : Http
+				private http : Http,
+				private loginService : LoginService
 				) { }
     
     
-    
+    /*
     ngAfterViewInit(){
-        this.pseudo = this.login.pseudo;
-        this.id = this.login.id;
-        this.token = this.login.token;
+        pseudo:String  = this.loginService.getUserPseudo();
+        id:String = this.loginService.getUserID();
+        token:String = this.loginService.getUserToken();
     }
     
-    
+    */
+        pseudo:String  = this.loginService.getUserPseudo();
+        id:String = this.loginService.getUserID();
+        token:String = this.loginService.getUserToken();
     seDeconnecter(){
         
         console.log(' in  SeDeconnecter ');
@@ -40,7 +37,7 @@ export class AccueilComponent implements AfterViewInit  {
 						var resp = JSON.parse(data["_body"].toString());
                         console.log(data);
 						if(resp.status=="ok"){
-							this.routeur.navigate(["login"]);
+							this.routeur.navigate([""]);
 						}
 						else{
 							this.routeur.navigate(["error"]);

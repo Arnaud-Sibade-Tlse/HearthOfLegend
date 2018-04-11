@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Http } from '@angular/http';
 import * as $ from 'jquery';
 import 'rxjs/Rx';
+import { LoginService } from '../login.service';
 
 @Component({
   selector: 'loginHoL',
@@ -11,15 +12,9 @@ import 'rxjs/Rx';
 })
 export class LoginComponent {
     
-    pseudo: string;
-    id : string;
-    token: string;
-    
-    messErreur: string;
-	redirectLog:boolean = true;
-    
 	constructor(private routeur: Router,
-				private http : Http
+				private http : Http,
+				private loginService : LoginService
 				) { }
 
 	seConnecter(){
@@ -31,11 +26,11 @@ export class LoginComponent {
 			.subscribe(data => {
 						var resp = JSON.parse(data["_body"].toString());
 						if(resp.status=="ok"){
-                            this.setDataUsr(resp.data.id,resp.data.name,resp.data.token);
+                            this.loginService.setUserInfo(resp.data.id,resp.data.name,resp.data.token);
 							this.routeur.navigate(["accueil"]);
 						}
 						else{
-                            this.setMessErr(resp.data.message);
+                            this.loginService.setMessErr(resp["message"],false);
 							this.routeur.navigate(["error"]);
 						}
 					
@@ -43,17 +38,8 @@ export class LoginComponent {
 						console.log('http error', error);
 					});			
 		}
+		
 	}
-    
-    setDataUsr(id,name,token){
-        this.pseudo = name;
-        this.id = id;
-        this.token = token;
-    }
-	
-	setMessErr(messErr){
-        this.messErreur = messErr;
-    }
 	
 	creerCompte(){
 		var pseudo= (<HTMLInputElement>document.getElementById("pseudoCr")).value;

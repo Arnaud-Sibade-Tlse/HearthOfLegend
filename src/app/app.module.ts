@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponents, AppRoutes } from './app.routing';
 import { AppComponent } from './app.component';
 import { AllCardsService } from './all-cards.service';
+import { LoginService } from './login.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,10 @@ import { AllCardsService } from './all-cards.service';
 	RouterModule,
 	RouterModule.forRoot(AppRoutes)
   ],
-  providers: [AllCardsService],
+  providers: [
+	AllCardsService,
+	LoginService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

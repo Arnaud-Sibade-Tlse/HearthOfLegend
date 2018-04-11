@@ -1,9 +1,6 @@
 <div>
   <h2>Oups ... Une erreur est survenue ...</h2>
-  <div ngFor="let data of datas">
-    <!--<div class="numErr">{{err}}</div>-->
-    <div class="getErr">{{err}}</div>
-  </div>
-  <button ng-click="getBack()">Retour</button>
+    <p>{{err}}</p>
+  <button (click)="getBack()">Retour</button>
 
 </div>

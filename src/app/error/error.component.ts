@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-//import { JsonReader } from '.json.error';
+import { Router } from '@angular/router';
+import { LoginService } from '../login.service';
 
 
 @Component({
@@ -11,18 +12,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ErrorComponent{
 
-  err :string;
-
-  constructor(/*param: err*/) {
-    //this.err = param.err;
-  }
+  err :String = this.loginService.getMessErr();
+  refAcc:boolean = this.loginService.getIsAcc();
+  
+  
+  constructor(private routeur: Router,
+			  private loginService : LoginService
+			  ) {}
 
   getBack(){
-     //router.navigate(['accueil']);
+	 if(this.refAcc){
+		this.routeur.navigate(["accueil"]);
+	 }
+	 else{
+		this.routeur.navigate([""]);
+	 }
   }
-
-  ngOnInit() {
-  }
-
 
 }
