@@ -1,4 +1,4 @@
-import { Component,ViewChild, AfterViewInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Http } from '@angular/http';
 import { LoginService } from '../login.service';
@@ -9,22 +9,12 @@ import { LoginService } from '../login.service';
   styleUrls: ['./accueil.component.css']
 })
 
-export class AccueilComponent implements AfterViewInit  {    
+export class AccueilComponent   {    
     
 	constructor(private routeur: Router,
 				private http : Http,
 				private loginService : LoginService
 				) { }
-    
-    
-    /*
-    ngAfterViewInit(){
-        pseudo:String  = this.loginService.getUserPseudo();
-        id:String = this.loginService.getUserID();
-        token:String = this.loginService.getUserToken();
-    }
-    
-    */
         pseudo:String  = this.loginService.getUserPseudo();
         id:String = this.loginService.getUserID();
         token:String = this.loginService.getUserToken();
