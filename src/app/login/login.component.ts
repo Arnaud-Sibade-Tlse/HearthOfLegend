@@ -27,6 +27,7 @@ export class LoginComponent {
 						var resp = JSON.parse(data["_body"].toString());
 						if(resp.status=="ok"){
                             this.loginService.setUserInfo(resp.data.id,resp.data.name,resp.data.token);
+							this.loginService.setAuth(true);
 							this.routeur.navigate(["accueil"]);
 						}
 						else{

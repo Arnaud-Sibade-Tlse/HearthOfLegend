@@ -8,7 +8,9 @@ export class LoginService {
   token:String;
   
   messErreur:String;
-  isAcc = false;
+  isAcc:boolean = false;
+  
+  auth:boolean = false;
   
   constructor() { }
 
@@ -31,6 +33,11 @@ export class LoginService {
   getIsAcc(){
 	  return this.isAcc;
   }
+  
+  getAuth(){
+	  return this.auth;
+  }
+ 
   setUserInfo(id,name,token){
        this.pseudo = name;
        this.id = id;
@@ -42,4 +49,7 @@ export class LoginService {
 	  this.isAcc = bool;
   }
   
+  setAuth(bool){
+	  this.auth = bool;
+  }
 }
