@@ -11,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ErrorComponent{
 
-  err = "erreur 1 ";
+  err :string;
 
   constructor(/*param: err*/) {
     //this.err = param.err;
