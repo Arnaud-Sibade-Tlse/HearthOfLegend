@@ -5,18 +5,14 @@ import { LoginComponent } from "../login/login.component";
 
 @Component({
   selector: 'app-accueil',
-  //templateUrl: './accueil.component.html',
     templateUrl:'./accueil.component.html',
-    //'<p>Your credit card is: {{ pseudo }}</p>',
   styleUrls: ['./accueil.component.css']
-})
-@Component({
-  selector: 'pseudo',
-    template:'<p>Your credit card is: {{pseudo}}</p>'
 })
 
 export class AccueilComponent implements AfterViewInit  {
     
+    @ViewChild('LoginComponent') login;
+	
     pseudo: string;
     id : string;
     token: string;
@@ -26,7 +22,6 @@ export class AccueilComponent implements AfterViewInit  {
 				private http : Http
 				) { }
     
-    @ViewChild(LoginComponent) login;
     
     
     ngAfterViewInit(){

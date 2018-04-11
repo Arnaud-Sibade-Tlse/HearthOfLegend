@@ -19,5 +19,6 @@ export const AppComponents: any = [
 	ErrorComponent,
 	AccueilComponent,
     CardComponent,
-    CollectionComponent
+    CollectionComponent,
+	GameComponent
 ];

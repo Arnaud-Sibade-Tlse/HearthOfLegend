@@ -15,6 +15,8 @@ export class LoginComponent {
     id : string;
     token: string;
     
+    messErreur: string;
+	redirectLog:boolean = true;
     
 	constructor(private routeur: Router,
 				private http : Http
@@ -29,10 +31,11 @@ export class LoginComponent {
 			.subscribe(data => {
 						var resp = JSON.parse(data["_body"].toString());
 						if(resp.status=="ok"){
+                            this.setDataUsr(resp.data.id,resp.data.name,resp.data.token);
 							this.routeur.navigate(["accueil"]);
-                            this.setData(resp.data.id,resp.data.name,resp.data.token);
 						}
 						else{
+                            this.setMessErr(resp.data.message);
 							this.routeur.navigate(["error"]);
 						}
 					
@@ -42,12 +45,16 @@ export class LoginComponent {
 		}
 	}
     
-    setData(id,name,token){
+    setDataUsr(id,name,token){
         this.pseudo = name;
         this.id = id;
         this.token = token;
     }
-
+	
+	setMessErr(messErr){
+        this.messErreur = messErr;
+    }
+	
 	creerCompte(){
 		var pseudo= (<HTMLInputElement>document.getElementById("pseudoCr")).value;
 		var mail= (<HTMLInputElement>document.getElementById("mailCr")).value;
