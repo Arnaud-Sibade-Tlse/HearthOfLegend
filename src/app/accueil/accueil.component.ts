@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component , OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Http } from '@angular/http';
 import { LoginService } from '../login.service';
@@ -9,25 +9,34 @@ import { LoginService } from '../login.service';
   styleUrls: ['./accueil.component.css']
 })
 
-export class AccueilComponent   {    
+export class AccueilComponent {   
+    
+    pseudo:String  = this.loginService.getUserPseudo();
+    id:String = this.loginService.getUserID();
+    token:String = this.loginService.getUserToken();
+    
+    
     
 	constructor(private routeur: Router,
 				private http : Http,
 				private loginService : LoginService
 				) { }
-        pseudo:String  = this.loginService.getUserPseudo();
-        id:String = this.loginService.getUserID();
-        token:String = this.loginService.getUserToken();
+    
+    
     seDeconnecter(){
+        var token = this.loginService.getUserToken();
         
-        console.log(' in  SeDeconnecter ');
-        /* verifie qu'il est co ? */
-        this.http.get("http://los.ling.fr/users/disconnect")
+        
+        if(this.loginService.getAuth()){        
+        this.http.get("https://los.ling.fr/users/disconnect?token="+token)
         .subscribe(data => {
 						var resp = JSON.parse(data["_body"].toString());
-                        console.log(data);
+                        
 						if(resp.status=="ok"){
 							this.routeur.navigate([""]);
+                            this.loginService.setAuth(false);
+                            this.loginService.setUserInfo("","","");
+                            alert("Vous êts deco");
 						}
 						else{
 							this.routeur.navigate(["error"]);
@@ -35,65 +44,99 @@ export class AccueilComponent   {
                     }
         , error => {
 						console.log('http error', error);
-					});	
+					});
+        }
+        else{
+            this.routeur.navigate([""]);
+        }
+    }
+    
+    refresh(){
+        var token = this.loginService.getUserToken();
+        this.http.get("https://los.ling.fr/matchmaking/participate?token="+token)
+            .subscribe(data => {
+                var resp = JSON.parse(data["_body"].toString());
+                if(resp.status=="ok"){
+                    this.loginService.setParticipateMatch(resp.data.matchmakingId,resp.data.request);
+                }
+                else{
+                    this.loginService.setMessErr(resp["message"],false);
+                    this.routeur.navigate(["error"]);
+                }      
+            }, error => {
+                console.log('http error', error);   
+            });
+        this.listeJoueur();
     }
     
     show_div(idShow,idButton) {
         
-        console.log(' in show_div ');
-        
-        
-        var tIdShow = (<HTMLInputElement><HTMLInputElement>document.getElementById(idShow));
+        var tIdShow = (<HTMLInputElement>document.getElementById(idShow));
         var tDdButton = (<HTMLInputElement>document.getElementById(idButton));
-        console.log(tIdShow);
-        if (tIdShow.style.display == 'none') {
-            tIdShow.style.display = 'block';
-            tDdButton.style.display = 'none';
-        } else {
-            /* sinon envoyer la fonction refresh() si bouton reste afficher ?*/
-            
-        }   
+        
+        
+        tIdShow.style.display = 'block';
+        tDdButton.style.display = 'none';
+
+
+        this.refresh();
     }
     
 
-        /*    
         
-        Ce WS ne nécessite aucun paramètre. Une fois appelé, ce WS met l’utilisateur dans la liste
-des joueurs désirant jouer.
-Ce WS retourne 2 champs :
-— "matchmakingId" : l’identifiant du "matchmaking" qui correspond à l’entrée du joueur dans
-la liste des joueurs désirant jouer
-— "request" : un tableau contenant l’ensemble des demandes reçues
-Le champ "request" se met à jour chaque fois qu’une nouvelle requête est reçue. Il faut donc
-envoyer une requête vers ce WS régulièrement 7 pour mettre à jour les requêtes reçues. Une
-requête contient les champs suivants :
-— "userId" : l’identifiant de l’utilisateur qui a envoyé la requête
-— "matchmakingId" : l’identifiant du "matchmaking" de l’utilisateur qui a envoyé la requête
-— "name" : le nom de l’utilisateur qui a envoyé la requête
-Il est donc possible de connaître quel joueur souhaite jouer avec l’utilisateur connecté
-        
-        */    
     
-   listeJoueur(){this.http.get("http://los.ling.fr/matchmaking/getAll");}
+   listeJoueur(){
+       var token = this.loginService.getUserToken();
+       var tableau = document.getElementById("tableauListeJoueurs");
+       var ligneExistante;
+       while( ligneExistante = document.getElementById('Body') ){
+           ligneExistante.parentNode.removeChild(ligneExistante);
+        }
+       this.http.get("https://los.ling.fr/matchmaking/getAll?token="+token)
+               .subscribe(data => {
+            
+
+               var resp = JSON.parse(data["_body"].toString());
+                console.log(resp);
+
+
+               for (let user of resp.data)  {
+                   
+                        let ratioRandom = Math.floor(Math.random() * Math.floor(100));
+                        let htmlcolumnName = '<tr class="body" id="Body"><td style="font-family: Lato-Regular;font-size: 15px;color: #808080;line-height: 1.4;background-color: #222222; width: 33%; padding-left: 40px;">' + user.name + '</td>';
+                   
+                        let htmlcolumnRatio = '<td style="font-family: Lato-Regular;font-size: 15px;color: #808080;line-height: 1.4;background-color: #222222;width: 13%;">'+ratioRandom+'%</td>';
+                   
+                        let htmlcolumnJoin = '<td style="font-family: Lato-Regular;font-size: 15px;color: #808080;line-height: 1.4;background-color: #222222;width: 22%;"><input width="30px" height="25px" type="image" class="btnJoin" src="../../assets/images/img_join.png" onclick="request('+user.matchmakingId+')"></td>';
+                   
+                        let htmlcolumnAccepter = '<td style="font-family: Lato-Regular;font-size: 15px;color: #808080;line-height: 1.4;background-color: #222222;width: 19%;"><input type="button" class="btnValidate" value=" IMG.png "></td>';
+                   
+                        let htmlcolumnRefuser = '<td style="font-family: Lato-Regular;font-size: 15px;color: #808080;line-height: 1.4;background-color: #222222;width: 13%;"> <input type="button" class="btnDecline" value=" IMG.png "></td></tr>';
+
+
+
+                        let htmlRow = htmlcolumnName + htmlcolumnRatio + htmlcolumnJoin + htmlcolumnAccepter + htmlcolumnRefuser;
+
+                        tableau.insertAdjacentHTML('beforeend', htmlRow);
+                }
+               
+               
+           }, error => {
+               console.log('http error', error);
+           });
+       }
+       
+       
+
     
     
     
-    
-    
-            /*    
-        
-        Ce WS retourne la liste directement, chaque élément de la liste contient les champs suivant :
-— "email" : email du joueur désirant jouer
-— "name" : nom du joueur désirant jouer
-— "matchmakingId" : l’identifiant du matchmaking du joueur désirant jouer
-        
-        */
-    
-    
-    
-    
-    
-//    participer(){this.http.get("http://los.ling.fr/matchmaking/participate");}
+        request(matchId){
+            var token = this.loginService.getUserToken();
+            this.http.get("https://los.ling.fr/matchmaking/participate?matchmakingId="+matchId+"&token"+token);
+             console.log('envoyer');  
+            alert("Demande Envoyer");                       
+        }   
     
     
     
@@ -107,12 +150,6 @@ requête
 Ce WS retourne juste un message précisant que la requête est envoyée.
         
         */
-    
-    
-    
-    
-    
- //   envoyerDemandeDePartie(){this.http.get("http://los.ling.fr/matchmaking/request");}
     
     
     

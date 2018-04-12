@@ -6,7 +6,10 @@ export class LoginService {
   id:String;
   pseudo:String;
   token:String;
+  matchId:string;
+  demandeMatch:string[];
   
+    
   messErreur:String;
   isAcc:boolean = false;
   
@@ -37,6 +40,13 @@ export class LoginService {
   getAuth(){
 	  return this.auth;
   }
+  getMatchId(){
+      return this.matchId;
+  }
+  getDemandeMatch(){
+      return this.demandeMatch;
+  }
+    
  
   setUserInfo(id,name,token){
        this.pseudo = name;
@@ -52,4 +62,12 @@ export class LoginService {
   setAuth(bool){
 	  this.auth = bool;
   }
+    
+  setParticipateMatch(idMatch,matchDemande){
+      this.matchId = idMatch;
+      this.demandeMatch = matchDemande;
+  }
+  
+    
+
 }
