@@ -5,25 +5,24 @@ import { LoginService } from './login.service';
 import { Router } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http'; 
 import { HttpModule } from '@angular/http';
-//import { AuthService } from '@angular/auth.service'
 
 @Injectable()
 export class LoginGuardGuard implements CanActivate {
     
-    constructor(/*private authService: AuthService,*/ private router: Router,
+    constructor(private router: Router,
                 private loginService: LoginService) {}
     
     
     canActivate(): boolean {
-    console.log('coucou');
-    console.log(this.loginService.getAuth());
-    if (this.loginService.getAuth()) {
-            return true;
-        } 
-    else {
-            this.router.navigate(["login"]);
-            return false;
+        console.log('coucou');
+        console.log(this.loginService.getAuth());
+        if (this.loginService.getAuth()) {
+                return true;
+            } 
+        else {
+                this.router.navigate(["login"]);
+                return false;
+        }
     }
-}
   
 }

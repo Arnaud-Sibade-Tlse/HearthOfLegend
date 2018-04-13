@@ -14,9 +14,9 @@ export const AppRoutes: any = [
 { path: "login", redirectTo: "", pathMatch: "full"},
 { path: "accueil", component: AccueilComponent, /*canActivate: [LoginGuardGuard]*/},
 { path: "error", component: ErrorComponent},
-{ path: "card", component: CardComponent, canActivate: [LoginGuardGuard]},
-{ path: "collection", component: CollectionComponent, canActivate: [LoginGuardGuard]},
-{ path: "game", component: GameComponent, canActivate: [LoginGuardGuard]}
+{ path: "card", component: CardComponent,/* canActivate: [LoginGuardGuard]*/},
+{ path: "collection", component: CollectionComponent, /*canActivate: [LoginGuardGuard]*/},
+{ path: "game", component: GameComponent, /*canActivate: [LoginGuardGuard]*/}
 ];
 
 export const AppComponents: any = [
